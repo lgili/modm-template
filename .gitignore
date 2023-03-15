@@ -1,0 +1,9 @@
+*.pyc
+build
+example/**/SConstruct
+example/**/mcal
+example/**/modm
+example/**/.lbuild_cache
+example/**/Makefile
+example/**/CMakelists.txt
+.sconsign.dblite

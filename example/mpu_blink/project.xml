@@ -1,0 +1,10 @@
+<library>
+  
+  <options>
+    <option name="modm:build:build.path">../../build/example/mpu_blink</option>
+    <option name="modm:build:openocd.cfg">openocd.cfg</option>
+  </options>
+  <modules>
+    <module>modm:platform:pwm:*</module>
+  </modules>
+</library>

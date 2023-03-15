@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Copyright (c) 2023 lgili
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
+
+license_warning = """\
+The mcal are licensed under a Mozilla Public License, \
+which you should definitely verify yourself:
+    mcal/src/mcal/License.txt
+"""
+
+
+def init(module):
+    module.name = ":mcal"
+
+
+def prepare(module, options):
+    module.depends(":board")
+
+    return True
+
+
+def validate(env):
+    env.log.warning(license_warning)
+
+def build(env):
+    env.outbasepath = "mcal"
+    env.copy("../LICENSE", "LICENSE")
+    
