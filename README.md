@@ -1,18 +1,18 @@
 # Example to show how to extend modm library to use my own boards and libraries
-
+This repo use [modm](https://github.com/modm-io/modm) and [lbuild](https://github.com/modm-io/lbuild). You should read more about this two library, if you want to use this repo.   
 
 ## Examples
 
 A few examples are provided in the `example` folder:
 * Blink - a standard blink led example
-* ADC - run and print de values read on the adc
+* ADC - run and print de values read
 
-You can use python to get values from uart:
+Run python to get values from uart:
 ```
 python -m serial /dev/ttyACM0  115200
 ```
 
-You can run this examples on two differents boars `["board-a","board-b"]`.
+Is possible to run this two examples on two differents boards `["board-a","board-b"]`.
 To change the board go to `example/lbuild.xml` and change the dev_board name `<option name="mcal:dev_board">board-a</option>`
 
 ```
