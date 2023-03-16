@@ -13,5 +13,6 @@
   </options>
   <modules>
     <module>modm:build:scons</module>
+    <module>mcal:docs</module>
   </modules>
 </library>

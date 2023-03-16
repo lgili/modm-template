@@ -25,7 +25,7 @@ int main()
 	while (true)
 	{
 		Led0::toggle();
-		modm::delay_ms(1000);
+		modm::delay_ms(100);
 
 		if (ButtonSW0::read())
 		{
