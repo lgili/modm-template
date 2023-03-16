@@ -18,7 +18,7 @@ To change the board go to `example/lbuild.xml` and change the dev_board name `<o
 ```
 
 # Compile with SCons 
-cd mpu_blink
+cd blink
 lbuild build
 scons build
 scons program
@@ -27,8 +27,14 @@ scons program
 
 ```
 # Compile with SCons or Makefile
-cd mpu_adc
+cd adc
 lbuild build
 scons
 make
+```
+## Documentation
+
+To generate documentation of the examples run this inside the folder that has the file `project.xml`:
+```
+(cd mcal/docs && make)
 ```
