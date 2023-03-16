@@ -13,7 +13,7 @@ python -m serial /dev/ttyACM0  115200
 ```
 
 Is possible to run this two examples on two differents boards `["board-a","board-b"]`.
-To change the board go to `example/lbuild.xml` and change the dev_board name `<option name="mcal:dev_board">board-a</option>`
+To change the board go to `example/lbuild.xml` and change the extends method `<extends>mcal:board-b</extends>` to use the board wanted.
 
 ```
 

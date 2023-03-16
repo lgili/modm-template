@@ -51,11 +51,11 @@ def init(repo):
         repo.add_configuration(Configuration(name, description, config, versions[0].strip()))
 
 
-    repo.add_option(
-        EnumerationOption(
-            name="dev_board",
-            description="Which development board to be used",
-            enumeration=["board-a", "board-b"]))
+    # repo.add_option(
+    #     EnumerationOption(
+    #         name="dev_board",
+    #         description="Which development board to be used",
+    #         enumeration=["board-a", "board-b"]))
 
 def prepare(repo, options):
     repo.add_modules_recursive("mcal")
