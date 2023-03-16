@@ -7,3 +7,6 @@ example/**/.lbuild_cache
 example/**/Makefile
 example/**/CMakelists.txt
 .sconsign.dblite
+docs/_build
+docs/api
+docs/doxyoutput

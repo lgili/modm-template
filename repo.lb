@@ -26,6 +26,13 @@ def init(repo):
     repo.name = "mcal"
     repo.description = FileReader("README.md")
 
+    repo.add_option(
+        StringOption(
+            name="project_name",
+            default="mcal-project",
+            description="Project name"))
+
+
     repo.add_ignore_patterns("*/*.lb", "*/board.xml")
 
     # Add the board configuration files as their module name aliases
@@ -52,6 +59,7 @@ def init(repo):
 
 def prepare(repo, options):
     repo.add_modules_recursive("mcal")
+    repo.add_modules_recursive("docs", modulefile="*.lb")
     # repo.add_modules_recursive("modm")
 
 def build(env):

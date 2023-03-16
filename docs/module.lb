@@ -1,0 +1,42 @@
+# Copyright (c) 2023 Luiz Carlos Gili
+# 
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
+import os
+
+def init(module):
+    module.name = ":docs"
+    module.description = "Doxygen Doc Generation"
+
+def prepare(module, options):
+    module.add_option(StringOption(
+        name="source_paths",
+        default="",
+        description="A space-separated list of file directories to search" \
+                    "through recursively when generating documentation." \
+                    "These directories should be relative to the directory in"
+                    "which your project.xml is located"))
+
+    module.depends(":mcal")
+
+    return True
+
+def build(env):
+    # Parse source_paths. Since the user specifies a path relative to their
+    # project.xml file, we must add ../.. to the paths such that the paths are
+    # relative to mcal/docs
+    source_paths = env["source_paths"].split(" ")
+    source_paths = [ os.path.join("..", path) for path in source_paths ]
+    source_paths = " ".join(source_paths)
+
+    env.substitutions = { "source_paths": source_paths }
+    env.outbasepath = "mcal/docs"
+    env.template("Doxyfile.in", "Doxyfile")
+    env.template("conf.py.in", "conf.py")
+    env.copy("index.rst")
+    env.copy("make.bat")
+    env.copy("Makefile")
+    env.copy("module.rst")
