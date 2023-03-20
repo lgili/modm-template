@@ -24,14 +24,10 @@ int main()
 
 	while (true)
 	{
-		Led0::toggle();
+		Leds::toggle();
 		modm::delay_ms(100);
 
-		if (ButtonSW0::read())
-		{
-			counter = 0;
-		}
-
+		
 		MODM_LOG_INFO << "loop: " << counter++ << modm::endl;
 	}
 
