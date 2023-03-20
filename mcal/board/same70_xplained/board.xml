@@ -11,6 +11,6 @@
     <option name="modm:target">same70q21a-an</option>
   </options>
   <modules>    
-    <module>mcal:board:board-a</module>
+    <module>mcal:board:same70_xplained</module>
   </modules>
 </library>

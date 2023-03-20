@@ -1,3 +1,9 @@
+// Copyright (c) 2023 Luiz Carlos Gili
+// 
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
 // Copyright (c) 2023 lgili
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -14,7 +20,7 @@
 
 namespace Board
 {
-	/// @ingroup mcal_board_a
+	/// @ingroup mcal_custom_sams70q19
 	/// @{
 	using namespace modm::literals;
 	using namespace modm::platform;
@@ -44,10 +50,11 @@ namespace Board
 		}
 	};
 
-	using Led0 = GpioC8;
-	using ButtonSW0 = GpioInverted<GpioA11>;
+	using LedGreen = GpioA25;
+	using LedRed = GpioA24;
 
-	using Leds = SoftwareGpioPort<Led0>;
+
+	using Leds = SoftwareGpioPort<LedGreen,LedRed>;
 
 	struct Debug
 	{
@@ -74,7 +81,6 @@ namespace Board
 		Debug::Uart::connect<Debug::UartTx::Tx, Debug::UartRx::Rx>();
 
 		Leds::setOutput();
-		ButtonSW0::setInput(InputType::PullUp);
 	}
 
 	/*

@@ -8,9 +8,9 @@
     </repository>
   </repositories>
   <options>
-    <option name="modm:target">same70q21a-an</option>
+    <option name="modm:target">same70n20a-an</option>
   </options>
   <modules>    
-    <module>mcal:board:board-b</module>
+    <module>mcal:board:custom_same70n20</module>
   </modules>
 </library>

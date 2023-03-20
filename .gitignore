@@ -10,3 +10,4 @@ example/**/CMakelists.txt
 docs/_build
 docs/api
 docs/doxyoutput
+tools/*

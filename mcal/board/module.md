@@ -29,7 +29,7 @@ If the board supports a dedicated serial logging output the BSP redirects the
 
 Please note that YOU must explicitly call the `Board` functions to initialize
 your hardware, just including the board module is not enough.
-Here is an example using the `modm:board-a` BSP:
+Here is an example using the `modm:same70_xplained` BSP:
 
 ```cpp
 #include <mcal/board.hpp>
@@ -42,7 +42,7 @@ int main()
 	Board::initializeDisplay();
 
 	// Set LEDs via the GPIO port
-	Board::Leds::write(0b1011);
+	Board::Leds::write(0b1);
 
 	// Use the pin names
 	Board::D0::setOutput(modm::Gpio::High);
@@ -53,7 +53,7 @@ int main()
 
 	while (true) {
 		// Link the LED to the button
-		Board::LedBlue::set(Board::Button:read());
+		Board::Led0::set(Board::ButtonSW0:read());
 	}
 	return 0;
 }

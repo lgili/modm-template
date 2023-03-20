@@ -14,7 +14,7 @@
 
 namespace Board
 {
-	/// @ingroup mcal_board_a
+	/// @ingroup mcal_same70_xplained
 	/// @{
 	using namespace modm::literals;
 	using namespace modm::platform;

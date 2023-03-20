@@ -1,0 +1,24 @@
+<!--
+ Copyright (c) 2023 Luiz Carlos Gili
+ 
+ This Source Code Form is subject to the terms of the Mozilla Public
+ License, v. 2.0. If a copy of the MPL was not distributed with this
+ file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+<library>
+  <repositories>    
+    <repository>
+      <path>../../../modm/repo.lb</path>
+    </repository>
+    <repository>
+      <path>../../../repo.lb</path>
+    </repository>
+  </repositories>
+  <options>
+    <option name="modm:target">sams70q19a-an</option>
+  </options>
+  <modules>    
+    <module>mcal:board:custom_sams70q19</module>
+  </modules>
+</library>

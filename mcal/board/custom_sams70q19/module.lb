@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# Copyright (c) 2023 Luiz Carlos Gili
+# 
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
 # -*- coding: utf-8 -*-
 #
 # Copyright (c) 2023 lgili
@@ -9,13 +15,13 @@
 
 
 def init(module):
-    module.name = ":board:board-b"
-    module.description = "Another Microchip SAME70 Xplained to use"
+    module.name = ":board:custom_sams70q19"
+    module.description = "Custom board using the sams70q19"
 
 
 def prepare(module, options):
-    if not options[":target"].partname == "same70q21a-an":
-        return False
+    if not options[":target"].partname == "sams70q19a-an":
+        return False    
 
     module.depends(":debug", ":platform:clockgen",
                    ":platform:gpio", ":platform:core", ":platform:usart:1")
@@ -23,9 +29,10 @@ def prepare(module, options):
 
 
 def build(env):
+    
     env.outbasepath = "mcal/src/mcal/board"
     env.copy("board.hpp")
     env.copy("board.cpp")
 
     # openocd file
-    env.copy("atmel_same70_xplained.cfg")
+    env.copy("board.cfg")
