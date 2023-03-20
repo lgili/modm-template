@@ -2,7 +2,7 @@
   
   <options>
     <option name="mcal:docs:source_paths">src</option>
-    <option name="modm:build:build.path">../../build/bin</option>
+    <option name="modm:build:build.path">../../build/example/blink</option>
     <option name="modm:build:openocd.cfg">openocd.cfg</option>
   </options>
   <modules>

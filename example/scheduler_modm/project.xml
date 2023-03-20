@@ -9,7 +9,7 @@
 <library>
   
   <options>
-    <option name="modm:build:build.path">../../build/example/mpu_adc</option>
+    <option name="modm:build:build.path">../../build/example/schedule_modm</option>
     <option name="modm:build:openocd.cfg">openocd.cfg</option>
   </options>
   <modules>
