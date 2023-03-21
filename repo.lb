@@ -60,7 +60,7 @@ def init(repo):
 def prepare(repo, options):
     repo.add_modules_recursive("mcal")
     repo.add_modules_recursive("docs", modulefile="*.lb")
-    # repo.add_modules_recursive("modm")
+    repo.add_modules_recursive("ext", modulefile="*.lb")
 
 def build(env):
 	env.collect("modm:build:path.include", "mcal/src/")
