@@ -16,5 +16,6 @@
     <module>modm:platform:adc:0</module>
     <module>modm:platform:clock</module>
     <module>mcal:processing:scheduler</module>
+    <module>mcal:ext:catch2</module>
   </modules>
 </library>
