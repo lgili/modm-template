@@ -1,13 +1,13 @@
 <!--
  Copyright (c) 2023 lgili
- 
+
  This Source Code Form is subject to the terms of the Mozilla Public
  License, v. 2.0. If a copy of the MPL was not distributed with this
  file, You can obtain one at http://mozilla.org/MPL/2.0/.
 -->
 
 <library>
-  
+
   <options>
     <option name="modm:build:build.path">../../build/example/schedule_mcal</option>
     <option name="modm:build:openocd.cfg">openocd.cfg</option>

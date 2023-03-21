@@ -5,7 +5,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-#pragma once 
+#pragma once
 #include <mcal/board.hpp>
 #include <modm/processing/scheduler/scheduler.hpp>
 

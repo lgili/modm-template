@@ -1,5 +1,5 @@
 <library>
-  <repositories>    
+  <repositories>
     <repository>
       <path>../../../modm/repo.lb</path>
     </repository>
@@ -10,7 +10,7 @@
   <options>
     <option name="modm:target">same70n20a-an</option>
   </options>
-  <modules>    
+  <modules>
     <module>mcal:board:custom_same70n20</module>
   </modules>
 </library>

@@ -17,7 +17,7 @@ namespace {
     TestTask2 task2;
 }
 void os::start_os(){
-    
+
     scheduler.scheduleTask(task1, 25000, 100);
     scheduler.scheduleTask(task2, 200, 10);
     for(;;){

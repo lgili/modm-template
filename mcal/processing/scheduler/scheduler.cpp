@@ -12,7 +12,7 @@
 
 #include "scheduler.hpp"
 #include "task_control_block.hpp"
-#include <modm/architecture/interface/atomic_lock.hpp>	
+#include <modm/architecture/interface/atomic_lock.hpp>
 
 namespace local
 {
@@ -92,7 +92,7 @@ auto mcal::scheduler::set_event(const task_id_type task_id, const event_type& ev
     modm::atomic::Lock();
 
     it_task_id->my_event |= event_to_set;
-   
+
     modm::atomic::Unlock();
 
     result_set_is_ok = true;

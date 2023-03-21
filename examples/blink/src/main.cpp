@@ -27,7 +27,7 @@ int main()
 		Leds::toggle();
 		modm::delay_ms(100);
 
-		
+
 		MODM_LOG_INFO << "loop: " << counter++ << modm::endl;
 	}
 

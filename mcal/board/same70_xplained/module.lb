@@ -15,7 +15,7 @@ def init(module):
 
 def prepare(module, options):
     if not options[":target"].partname == "same70q21a-an":
-        return False    
+        return False
 
     module.depends(":debug", ":platform:clockgen",
                    ":platform:gpio", ":platform:core", ":platform:usart:1")
@@ -23,7 +23,7 @@ def prepare(module, options):
 
 
 def build(env):
-    
+
     env.outbasepath = "mcal/src/mcal/board"
     env.copy("board.hpp")
     env.copy("board.cpp")

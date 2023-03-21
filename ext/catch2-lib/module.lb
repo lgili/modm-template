@@ -1,5 +1,5 @@
 # Copyright (c) 2023 Luiz Carlos Gili
-# 
+#
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -8,7 +8,7 @@
 def init(module):
     module.name = ":ext:catch2"
     module.description = """
-Catch2 is mainly a unit testing framework for C++, 
+Catch2 is mainly a unit testing framework for C++,
 but it also provides basic micro-benchmarking features, and simple BDD macros.
 """
 

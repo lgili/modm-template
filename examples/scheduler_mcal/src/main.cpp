@@ -19,17 +19,17 @@ void sys::idle::task_func(){
 
 void app::led::task_init(){
 
-} 
+}
 
 void app::led::task_func(){
 	Board::Leds::toggle();
-} 
+}
 
 int main()
 {
 	Board::initialize();
 
-	
+
 
 	// Use the logging streams to print some messages.
 	// Change MODM_LOG_LEVEL above to enable or disable these messages

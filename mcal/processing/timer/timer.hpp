@@ -108,7 +108,7 @@ namespace mcal::processing
 
       while (false == t_delay.timeout())
       {
-        
+
       }
     }
 

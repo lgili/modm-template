@@ -33,12 +33,12 @@ namespace mcal::scheduler
   // Enumerate the task IDs. Note that the order in this list must
   // be identical with the order of the tasks in the task list below.
   typedef enum enum_task_id
-  {    
+  {
     task_id_app_led,
     task_id_end
   } task_id_type;
 
-  // Configure the operating system types.  
+  // Configure the operating system types.
   using function_type = void(*)();
 
   using timer_type = mcal::processing::timer<std::uint_fast32_t>;

@@ -1,5 +1,5 @@
 <library>
-  
+
   <options>
     <option name="mcal:docs:source_paths">src</option>
     <option name="modm:build:build.path">../../build/example/blink</option>
