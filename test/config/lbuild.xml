@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<library>
+  <repositories>
+    <repository><path>../../modm/repo.lb</path></repository>
+    <repository><path>../../repo.lb</path></repository>
+    <repository><path>../repo.lb</path></repository>
+  </repositories>
+  <options>
+    <option name="modm:build:scons:include_sconstruct">False</option>
+    <!-- <option name="modm:build:info.build">True</option>
+    <option name="modm:build:info.git">Info+Status</option>
+    <option name="modm:build:scons:cache_dir">$cache</option> -->
+  </options>
+  <modules>
+    <module>modm:build:scons</module>
+  </modules>
+</library>

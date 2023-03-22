@@ -1,0 +1,16 @@
+<library>
+  <repositories>
+    <repository>
+      <path>../../../modm/repo.lb</path>
+    </repository>
+    <repository>
+      <path>../../../repo.lb</path>
+    </repository>
+  </repositories>
+  <options>
+    <option name="modm:target">same70q21a-an</option>
+  </options>
+  <modules>
+    <module>mcal:board:same70_xplained</module>
+  </modules>
+</library>

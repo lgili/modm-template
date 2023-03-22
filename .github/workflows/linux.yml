@@ -1,0 +1,87 @@
+name: Run tests on Linux
+
+on: [pull_request]
+
+jobs:
+  unittests-linux-generic:
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/modm-ext/modm-build-cortex-m:2023-01-08
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+      - name: Fix Git permission/ownership problem
+        run: |
+          git config --global --add safe.directory /__w/mcal/mcal
+      - name: Update lbuild
+        run: |
+          pip3 install --upgrade --upgrade-strategy=eager modm
+      - name: Check environment
+        run: |
+          env
+          locale -a
+          python --version  || true
+          python3 --version || true
+          python3 -c "import os; print(os.cpu_count())"
+          which scons
+          scons --version
+          which g++
+          g++ --version
+          which arm-none-eabi-g++
+          arm-none-eabi-g++ --version
+          which lbuild
+          lbuild --version
+      - name: Check for Trailing Whitespace
+        if: always()
+        run: |
+          python3 tools/scripts/rm_whitespace.py
+      - name: Check for Expired Deprecations
+        if: startsWith(github.head_ref, 'release/')
+        run: |
+          egrep -rI "DEPRECATED?:? +`basename ${{ github.head_ref }}`" . || true
+          return $(egrep -rI "DEPRECATED?:? +`basename ${{ github.head_ref }}`" . | wc -l)
+      # - name: Synchronize Documentation
+      #   if: always()
+      #   run: |
+      #     git checkout .
+      #     python3 tools/scripts/synchronize_docs.py -d
+      # - name: Synchronize HAL Support Matrix
+      #   if: always()
+      #   run: |
+      #     git checkout .
+      #     python3 tools/scripts/generate_hal_matrix.py -d
+      - name: Check Examples
+        if: always()
+        run: |
+          python3 tools/scripts/examples_check.py
+      - name: Hosted Unittests
+        if: always()
+        run: |
+          (cd test && make run-hosted-linux)      
+      - name: Examples Adc
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py adc)
+      - name: Examples Blink
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py blink)
+      - name: Examples Scheduler mcal
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py scheduler_mcal)
+      - name: Examples Scheduler modm
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py scheduler_modm)
+      
+      # - name: Execute Python Scripts
+      #   if: always()
+      #   run: |
+      #     python3 tools/scripts/authors.py --handles --count --shoutout --since 2017-01-01
+      #     python3 tools/xpcc_generator/builder/system_layout.py examples/xpcc/xml/communication.xml -o /tmp
+
+  

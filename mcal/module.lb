@@ -32,4 +32,3 @@ def validate(env):
 def build(env):
     env.outbasepath = "mcal"
     env.copy("../LICENSE", "LICENSE")
-    

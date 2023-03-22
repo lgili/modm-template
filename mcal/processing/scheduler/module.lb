@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Copyright (c) 2023 lgili
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
+def init(module):
+    module.name = ":processing:scheduler"
+    module.description = """\
+# Generic Scheduler
+Priority task scheduling
+"""
+
+def prepare(module, options):
+    module.depends(
+        ":architecture:accessor",
+        ":architecture:atomic",
+        ":platform:clock",
+        "mcal:processing:timer")
+    return True
+
+def build(env):
+    env.outbasepath = "mcal/src/mcal/processing/scheduler"
+    env.copy("scheduler.hpp")
+    env.copy("scheduler.cpp")
+    env.copy("task_control_block.hpp")
+    env.copy("task_control_block.cpp")
+
+    env.outbasepath = "src/"
+    env.copy("task_list.hpp")

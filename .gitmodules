@@ -1,3 +1,6 @@
 [submodule "modm"]
 	path = modm
 	url = https://github.com/lgili/modm.git
+[submodule "ext/catch2-lib/catch2"]
+	path = ext/catch2-lib/catch2
+	url = https://github.com/catchorg/Catch2.git
