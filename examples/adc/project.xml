@@ -13,6 +13,6 @@
     <option name="modm:build:openocd.cfg">openocd.cfg</option>
   </options>
   <modules>
-    <module>modm:platform:adc:0</module>
+    <module>mcal:platform:adc:0</module>
   </modules>
 </library>
