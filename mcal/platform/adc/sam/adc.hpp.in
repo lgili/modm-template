@@ -2,7 +2,7 @@
  * Copyright (c) 2021, Jeff McBride
  * Copyright (c) 2022, Christopher Durand
  * Copyright (c) 2023, Luiz Carlos Gili
- * 
+ *
  * This file is part of the modm project.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
@@ -62,7 +62,7 @@ public:
 
 public:
 
-	/** Trigger to start conversion 
+	/** Trigger to start conversion
 	  *
 	  * Set the peripheral to start the ADC conversion.
 	  */
@@ -227,7 +227,7 @@ public:
 	static inline bool
 	enableChannel(uint8_t channel)
 	{
-		if (channel >= {{channel_count}}) return false;		
+		if (channel >= {{channel_count}}) return false;
 		Regs()->{{reg}}_CHER = (1 << channel);
 		return true;
 	}
@@ -247,7 +247,7 @@ public:
 	/* Configure the user defined conversion sequence */
 	static inline void
 	enableUserSequence(uint32_t *channelList, uint8_t numChannel)
-	{		
+	{
 		uint8_t channelIndex;
 		Regs()->{{reg}}_SEQ1R = 0U;
 		Regs()->{{reg}}_SEQ2R = 0U;
@@ -276,15 +276,15 @@ public:
 	 */
 	static inline void
 	setTrigger(Trigger trigger)
-	{		
+	{
 		uint32_t reg;
 		reg = Regs()->{{reg}}_MR;
-		
+
 		if (trigger == Trigger::FREERUN) {
 			reg |= {{reg}}_MR_FREERUN_ON;
 		} else {
 			reg &= ~({{reg}}_MR_TRGSEL_Msk | {{reg}}_MR_TRGEN | {{reg}}_MR_FREERUN_ON);
-			reg |= (uint32_t)trigger; 
+			reg |= (uint32_t)trigger;
 		}
 
 		Regs()->{{reg}}_MR |= reg;

@@ -65,6 +65,10 @@ jobs:
         if: always()
         run: |
           (cd examples && ../tools/scripts/examples_compile.py adc)
+      - name: Examples Adc With trigger
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py adc_trigger)    
       - name: Examples Blink
         if: always()
         run: |

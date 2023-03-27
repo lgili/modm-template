@@ -12,20 +12,20 @@
 using namespace Board;
 
 
-using Ad1_afe1_ch6 = GpioC31::Ad; 	
-using Ad2_afe0_ch0 = GpioD30::Ad; 
-using Ad3_afe0_ch8 = GpioA19::Ad; 
-using Ad4_afe1_ch1 = GpioC13::Ad; 
-using Ad5_afe1_ch5 = GpioC30::Ad; 
-using Ad6_afe0_ch6 = GpioA17::Ad; 
-using Ad7_afe1_ch3 = GpioC12::Ad; 
+using Ad1_afe1_ch6 = GpioC31::Ad;
+using Ad2_afe0_ch0 = GpioD30::Ad;
+using Ad3_afe0_ch8 = GpioA19::Ad;
+using Ad4_afe1_ch1 = GpioC13::Ad;
+using Ad5_afe1_ch5 = GpioC30::Ad;
+using Ad6_afe0_ch6 = GpioA17::Ad;
+using Ad7_afe1_ch3 = GpioC12::Ad;
 
 uint16_t ad1_raw,ad4_raw,ad5_raw;
 double ad1_voltage, ad4_voltage;
 uint32_t adc_sequence[3] = {6,1,5};
 uint8_t ready = 0;
 
-// use timer channel 3 
+// use timer channel 3
 MODM_ISR(TC3)
 {
 	// clear interrupt flags by reading
@@ -69,26 +69,26 @@ int main()
 
 	// Clear output on register A match, set on register C match
 	TimerChannel3::setTioaEffects(TimerChannel3::TioEffect::Clear, TimerChannel3::TioEffect::Set);
-	
+
 	uint32_t freq = 10e3;
-	uint32_t period = (uint32_t) (75e6/32)/freq; 
+	uint32_t period = (uint32_t) (75e6/32)/freq;
 	TimerChannel3::setRegA(uint32_t(period* 0.1667));
 	TimerChannel3::setRegC(uint32_t(period));
 
-	
+
 	TimerChannel3::enableInterrupt(TimerChannel3::Interrupt::RcCompare);
 	TimerChannel3::enableInterruptVector(true,1);
 	TimerChannel3::enable();
-	
+
 	Afec1::enableInterruptVector(true,2);
 	TimerChannel3::start();
-	
+
 	MODM_LOG_INFO.printf("\n\r--------------------------------------------");
     MODM_LOG_INFO.printf("\n\r        AFEC User Sequence Demo                 ");
     MODM_LOG_INFO.printf("\n\r--------------------------------------------\n\r");
-    MODM_LOG_INFO.printf("Ad1 Raw  Ad1 Voltage  Ad4 Raw  Ad4 Voltage \n\r"); 
-	
-	
+    MODM_LOG_INFO.printf("Ad1 Raw  Ad1 Voltage  Ad4 Raw  Ad4 Voltage \n\r");
+
+
 
 	while (true)
 	{
