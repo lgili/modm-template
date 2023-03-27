@@ -7,7 +7,7 @@
 #pragma once
 
 #include <modm/architecture/interface/clock.hpp>
-#include <modm/platform.hpp>
+#include <mcal/platform.hpp>
 #include <modm/debug/logger.hpp>
 
 #define MODM_BOARD_HAS_LOGGER
