@@ -36,7 +36,7 @@ BlockTransfer prepareTransfer()
 	BlockTransfer transfer;
 	// source: AFEC1 data register
 	transfer.setSourceAddress(&AFEC1->AFEC_LCDR);
-	// destination: buffer 
+	// destination: buffer
 	transfer.setDestinationAddress(&afec1ResultRaw[0]);
 	transfer.setDataLength(afec1ResultRaw.size());
 
@@ -91,7 +91,7 @@ int main()
 	// Clear output on register A match, set on register C match
 	TimerChannel3::setTioaEffects(TimerChannel3::TioEffect::Clear, TimerChannel3::TioEffect::Set);
 
-	// set frequency of timer 3 with random period 
+	// set frequency of timer 3 with random period
 	uint32_t freq = 10e3;
 	uint32_t period = (uint32_t)(75e6 / 32) / freq;
 	TimerChannel3::setRegA(uint32_t(period * 0.1667));

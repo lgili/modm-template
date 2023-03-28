@@ -48,19 +48,24 @@ int main()
 {
 	Board::initialize();
 
-	MODM_LOG_INFO << "Init \n";
+	// initialize and set trigger to afec1
 	Afec1::initialize<Board::SystemClock>();
 	Afec1::setTrigger(Afec1::Trigger::TIOACH0_AFEC0);
+
+	// set user sequence for readings
 	Afec1::enableUserSequence(adc_sequence, 3);
 
+	// enable interrupt on last reading
 	Afec1::enableInterrupt(Afec1::InterruptMask::Eoc5);
 
+	// this is confusing, but when is used the user sequence, the channels
+	// are enabled in order not by the hardware name
 	Afec1::enableChannel(0);
 	Afec1::enableChannel(1);
 	Afec1::enableChannel(2);
 
 
-	// setup timer channel 10 to run interrupt at ~1 Hz from ~32 kHz internal slow clock
+	// configure timer 3 trigger AFEC1 readings
 	TimerChannel3::initialize();
 	TimerChannel3::setClockSource(TimerChannel3::ClockSource::MckDiv32);
 	TimerChannel3::setWaveformMode(true);
@@ -70,25 +75,25 @@ int main()
 	// Clear output on register A match, set on register C match
 	TimerChannel3::setTioaEffects(TimerChannel3::TioEffect::Clear, TimerChannel3::TioEffect::Set);
 
+	// set frequency of timer 3 with random period
 	uint32_t freq = 10e3;
-	uint32_t period = (uint32_t) (75e6/32)/freq;
-	TimerChannel3::setRegA(uint32_t(period* 0.1667));
+	uint32_t period = (uint32_t)(75e6 / 32) / freq;
+	TimerChannel3::setRegA(uint32_t(period * 0.1667));
 	TimerChannel3::setRegC(uint32_t(period));
 
-
 	TimerChannel3::enableInterrupt(TimerChannel3::Interrupt::RcCompare);
-	TimerChannel3::enableInterruptVector(true,1);
+	TimerChannel3::enableInterruptVector(true, 1);
 	TimerChannel3::enable();
 
+	// enable interrupt vector for afec1
 	Afec1::enableInterruptVector(true,2);
+	// start timer
 	TimerChannel3::start();
 
 	MODM_LOG_INFO.printf("\n\r--------------------------------------------");
     MODM_LOG_INFO.printf("\n\r        AFEC User Sequence Demo                 ");
     MODM_LOG_INFO.printf("\n\r--------------------------------------------\n\r");
     MODM_LOG_INFO.printf("Ad1 Raw  Ad1 Voltage  Ad4 Raw  Ad4 Voltage \n\r");
-
-
 
 	while (true)
 	{

@@ -1,6 +1,6 @@
 <library>
   <options>
-    <option name="modm:build:build.path">../../../../build/dma/dma_block_transfer_dac</option>
+    <option name="modm:build:build.path">../../../build/dma/dma_block_transfer_adc</option>
     <option name="modm:build:openocd.cfg">openocd.cfg</option>
   </options>
   <modules>

@@ -81,7 +81,22 @@ jobs:
         if: always()
         run: |
           (cd examples && ../tools/scripts/examples_compile.py scheduler_modm)
-      
+      - name: Examples DMA-ADC block transfer
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py dma/block_transfer_adc)    
+      - name: Examples DMA-DAC block transfer
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py dma/block_transfer_dac)
+      - name: Examples DMA-ADC linked list transfer
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py dma/linked_list_transfer_adc)
+      - name: Examples DMA-DAC linked list transfer
+        if: always()
+        run: |
+          (cd examples && ../tools/scripts/examples_compile.py dma/linked_list_transfer_dac)
       # - name: Execute Python Scripts
       #   if: always()
       #   run: |
