@@ -7,6 +7,8 @@ examples/**/modm
 examples/**/.lbuild_cache
 examples/**/Makefile
 examples/**/CMakelists.txt
+examples/**/*.log
+examples/**/**/*.log
 .sconsign.dblite
 docs/_build
 docs/api
