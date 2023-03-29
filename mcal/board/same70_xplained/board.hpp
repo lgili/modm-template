@@ -27,6 +27,7 @@ namespace Board
 		static constexpr uint32_t Mck = Frequency / 2; // 150 MHz max.
 		static constexpr uint32_t Usart1 = Mck;
 		static constexpr uint32_t Spi0 = Mck;
+		static constexpr uint32_t Twihs0 = Mck;
 		//	static constexpr uint32_t Usb = 48_MHz;
 
 		static bool inline enable()
