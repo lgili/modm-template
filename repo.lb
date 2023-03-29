@@ -58,7 +58,7 @@ def init(repo):
     #         enumeration=["board-a", "board-b"]))
 
 def prepare(repo, options):
-    repo.add_modules_recursive("mcal")
+    repo.add_modules_recursive("mcal", modulefile="*.lb")
     repo.add_modules_recursive("docs", modulefile="*.lb")
     repo.add_modules_recursive("ext", modulefile="*.lb")
 
