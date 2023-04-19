@@ -45,7 +45,7 @@ sudo apt install openocd
 Got to [Jlink](https://www.segger.com/downloads/jlink/) and download the installer, and do the installation.
 And add to PATH:
 ```bash
-export PATH="$HOMEopt/SEGGER/JLink/:$PATH"
+export PATH="opt/SEGGER/JLink/:$PATH"
 ```
 
 #### Hosted
@@ -77,6 +77,15 @@ scons build
 scons program
 ```
 
+
+```
+# Debud with SCons and VS code
+lbuild build -m ::vscode  #and open vscode on blink folder
+scons build
+scons program
+# if using jlink change "servertype": "jlink" and "device": "ATSAME70Q20A"
+# on vscode press F5 to star debug
+```
 
 ```
 # Compile with SCons or Makefile
