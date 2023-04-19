@@ -51,11 +51,7 @@ namespace Board
 		}
 	};
 
-	using LedGreen = GpioA25;
-	using LedRed = GpioA24;
-
-
-	using Leds = SoftwareGpioPort<LedGreen,LedRed>;
+	
 
 	struct Debug
 	{

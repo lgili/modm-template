@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug (Release, Scons, SAME70N20A-AN)",
+            "cwd": "${workspaceFolder}",
+            "executable": "../../build/app/scons-release/app.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "/home/lgili/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin",
+            "device": "ATSAME70Q20A",
+            "interface": "swd",
+            "runToMain": true,
+            "configFiles": [
+                "modm/openocd.cfg",
+                "/home/lgili/Documents/Tese/outros/gruner/src/app/openocd.cfg",
+            ],
+        },
+        {
+            "name": "Debug (Debug, Scons, SAME70N20A-AN)",
+            "cwd": "${workspaceFolder}",
+            "executable": "../../build/app/scons-debug/app.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "device": "ATSAME70Q20A",
+            "interface": "swd",
+            "runToMain": true,
+            "configFiles": [
+                "modm/openocd.cfg",
+                "/home/lgili/Documents/Tese/outros/gruner/src/app/openocd.cfg",
+            ],
+        },
+    ]
+}

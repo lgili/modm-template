@@ -1,6 +1,5 @@
 *.pyc
 build
-.vscode
 examples/**/SConstruct
 examples/**/mcal
 examples/**/modm

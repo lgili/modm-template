@@ -1,0 +1,18 @@
+<library>
+  <repositories>
+    <repository>
+      <path>../modm/repo.lb</path>
+    </repository>
+    <repository>
+      <path>../repo.lb</path>
+    </repository>
+  </repositories>
+  <extends>mcal:custom_same70n20</extends>
+  <options>
+    <!-- <option name="mcal:dev_board">board-b</option> -->
+  </options>
+  <modules>
+    <module>modm:build:scons</module>
+    <module>mcal:docs</module>
+  </modules>
+</library>
