@@ -80,7 +80,7 @@ MODM_ISR(TC0)
 {
 	// clear interrupt flags by reading
 	(void)TimerChannel0::getInterruptFlags();
-	Led0::toggle();
+	//Led0::toggle();
 }
 int main()
 {
@@ -127,7 +127,7 @@ int main()
 	while (true)
 	{
 
-		modm::delay(500ms);
+		modm::delay(100ms);
 		Led0::toggle();
 		// ad10_voltage++;
 		iGrid_real = (double)(afec0ResultRaw[0] * 3.3 / 4095);

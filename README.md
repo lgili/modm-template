@@ -100,3 +100,35 @@ To generate documentation of the examples run this inside the folder that has th
 ```
 (cd mcal/docs && make)
 ```
+
+##  (WSL2 with USB Passthrough)[https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/] 
+install ubuntu on wsl
+```bash
+wsl --install
+wsl --update
+wsl --install -d Ubuntu-20.04
+```
+open vs code and the wsl ubuntu terminal and run the
+```bash
+./tools/scripts/bootstrap.sh
+```
+
+
+windows
+Install the latest release of (usbipd-win)[https://github.com/dorssel/usbipd-win/releases].
+* on powersheel 
+From an administrator command prompt on Windows, run this command. It will list all the USB devices connected to Windows.
+```
+usbipd wsl list
+```
+
+Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command.
+```
+usbipd wsl attach --busid <busid> --distribution Ubuntu-20.04
+```
+(wls2)[https://github.com/dorssel/usbipd-win/wiki/WSL-support]
+sudo apt install linux-tools-5.4.0-77-generic hwdata
+sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/5.4.0-77-generic/usbip 20
+
+sudo apt install linux-tools-virtual hwdata
+sudo update-alternatives --install /usr/local/bin/usbip usbip `ls /usr/lib/linux-tools/*/usbip | tail -n1` 20
